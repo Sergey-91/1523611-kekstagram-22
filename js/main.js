@@ -13,12 +13,9 @@ let randomNumber = function (min, max) {
 
 <a href = "http://espressocode.top/how-to-generate-random-number-in-given-range-using-javascript/"></a>
 
- function coment (str, maxLenght){
-    if(str.lenght > maxLenght){
-        return
-    }
-    
-}
+ function checkLength (str, maxLenght) {
+    return (str.lenght > maxLenght) ? true : false
+ }
 
 
 
