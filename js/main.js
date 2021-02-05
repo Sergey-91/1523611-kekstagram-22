@@ -1,16 +1,21 @@
 "use strict";
 
 let randomNumber = (min, max) => {
-    if(min > max){
+    if(min > max) {
 
-        return false 
+        let tmp = min;
+        min = max;
+        max = tmp;
 
-    } else {
+        }
 
-        return Math.floor(Math.random() * (max + 1))
+        return min + Math.floor( Math.random() * (max + 1 - min))
         
-    }
-};
+        
+    };
+    
+
+       
 
 
        
