@@ -16,7 +16,7 @@ const RANDOM_MESSAGES = [
 const AVATAR_NAMES = [
   'Максим',
   'Валентин',
-  'Георгий',
+  'Сергей',
   'Маргарита',
 ];
 const randomElement = (array) => {
