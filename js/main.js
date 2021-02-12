@@ -1,3 +1,4 @@
+
 'use strict';
 const COMMENTS_ARRAY = [
   'Всё отлично!',
@@ -37,4 +38,10 @@ let photosArray = (new Array(25)).fill(undefined).map (
   }),
 )
 photosArray()
+    
+ 
+
+
+
+
 
