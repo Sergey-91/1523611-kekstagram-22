@@ -17,7 +17,7 @@ const AVATAR_NAMES = [
   'Максим',
   'Валентин',
   'Георгий',
-  'Святослав',
+  'Маргарита',
 ];
 const randomElement = (array) => {
   return array[Math.floor(Math.random() * array.length)]
