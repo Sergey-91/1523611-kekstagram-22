@@ -1,3 +1,4 @@
+import{randomElement, randomNumber} from './util.js';
 const COMMENTS_ARRAY = [
     'Всё отлично!',
     'В целом всё неплохо. Но не всё.',
@@ -32,6 +33,5 @@ const COMMENTS_ARRAY = [
     },
     }),
     )
-    photosArray()
-    import{randomElement, randomNumber} from '/util.js';
-    export {COMMENTS_ARRAY, RANDOM_MESSAGES, AVATAR_NAMES, photosArray};
+
+    

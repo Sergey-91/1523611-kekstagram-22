@@ -1,1 +1,1 @@
-import {COMMENTS_ARRAY, RANDOM_MESSAGES, AVATAR_NAMES, randomElement, photosArray} from '/photos-array.js';
+import {} from './photos-array.js';
