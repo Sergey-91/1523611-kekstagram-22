@@ -18,9 +18,6 @@ const COMMENTS_ARRAY = [
     'Сергей',
     'Маргарита',
     ];
-    const randomElement = (array) => {
-    return array[Math.floor(Math.random() * array.length)]
-    };
     let photosArray = (new Array(25)).fill(undefined).map (
     (_, index) => ({
     url: 'photos/' + index + '.jpg',
@@ -36,4 +33,5 @@ const COMMENTS_ARRAY = [
     }),
     )
     photosArray()
-    export {COMMENTS_ARRAY, RANDOM_MESSAGES, AVATAR_NAMES, randomElement, photosArray};
+    import{randomElement, randomNumber} from '/util.js';
+    export {COMMENTS_ARRAY, RANDOM_MESSAGES, AVATAR_NAMES, photosArray};
