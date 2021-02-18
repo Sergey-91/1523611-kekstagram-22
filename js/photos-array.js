@@ -21,17 +21,18 @@ const COMMENTS_ARRAY = [
     ];
     let photosArray = (new Array(25)).fill(undefined).map (
     (_, index) => ({
-    url: 'photos/' + index + '.jpg',
+    url: 'photos/' + (index + 1) + '.jpg',
     id: index,
     likes: Math.floor(Math.random() * 185 + 15),
     description: randomElement(COMMENTS_ARRAY),
-    comments:{
+    comments:[{
     id: index,
     avatar: 'img/avatar:' + Math.floor(1 + Math.random() * (6 + 1 - 1)) + '.svg',
     message: randomElement(RANDOM_MESSAGES),
     name: randomElement(AVATAR_NAMES),
-    },
+    }],
     }),
     )
+    export{photosArray};
 
     
