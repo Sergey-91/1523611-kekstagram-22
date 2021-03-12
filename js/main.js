@@ -1,4 +1,4 @@
 
-import {} from './photos-array.js';
-import {} from './photos.js';
-import {} from './uploading-images.js';
+import  './photos-array.js';
+import  './photos.js';
+import  './uploading-images.js';
