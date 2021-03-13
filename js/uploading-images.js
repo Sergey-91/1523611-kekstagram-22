@@ -99,19 +99,19 @@ const setSliderOptions = (effect) =>{
         options = {
             range: {
                 min: 0,
-                max: 100 + '%',
+                max: 100,
             },
-            step: 0.1 + '%',
-            start: 0,
+            step: 0.1,
+            start: 100,
         }
     } if (effect === 'phobos') {
         options = {
             range: {
                 min: 0,
-                max: 3 + 'px',
+                max: 3,
             },
-            step: 0.1 + 'px',
-            start: 0,
+            step: 0.1,
+            start: 3,
         }
     }if (effect === 'heat') {
         options = {
@@ -120,22 +120,51 @@ const setSliderOptions = (effect) =>{
                 max: 3,
             },
             step: 0.1,
-            start: 1,
+            start: 3,
         }
-    }if(effect === 'none') {
-        options = { hidden } 
     }
     slider.noUiSlider.updateOptions(options);
 };
 
 radios.forEach ((effectButton) => {
-    effectButton.addEventListener ('click' , () => {
-        if (effectButton.value === 'none' ) {
-            slider.classList.add('hidden');
-            imgUploadPreview.style.filter = 'none';
-         } else{
-            slider.classList.remove('hidden');
-            imgUploadPreview.classList.add('.effects__preview--' + effectButton.value);
 
-         }... /* здесь меняются настройки слайдера, я так понимаю настройки которые должны быть изначально в функции createSlider */ 
- } 
+    effectButton.addEventListener ('click' , () => {
+    if (effectButton.value === 'none' ) {
+    slider.classList.add('hidden');
+    imgUploadPreview.style.filter = 'none';
+    } else{
+    slider.classList.remove('hidden');
+    imgUploadPreview.classList.add('.effects__preview--' + effectButton.value);
+    
+    }
+    }
+    )
+    });
+
+    const onUpdateSlider = (effect) => {
+        setSliderOptions(effect);
+        slider.noUiSlider.on('update', (values, handle) => {
+            effectLevelValue.value = values[handle];
+           
+            let filterName = '';
+            if (effect === 'chrome') {
+            filterName = 'grayscale(' + values[handle] +')';
+            }
+            if (effect === 'sepia') {
+            filterName = 'sepia(' + values[handle] +')';
+            }
+            if (effect === 'marvin') {
+            filterName = 'invert(' + values[handle] +'%)';
+            }
+             
+            if (effect === 'phobos') {
+            filterName = 'blur(' + values[handle] +'px)';
+            }
+            if (effect === 'heat') {
+            filterName = 'brightness(' + values[handle] +')';
+            }
+            imgUploadPreview.style.filter = filterName;
+            });
+    };
+    createSlider();
+
