@@ -17,6 +17,8 @@ let options = {};
 const initForm = ()=>{
     inputValue.value = STANDART_VALUE + '%';
     imgUploadPreview.style.transform = 'scale(' + (inputValue.value / 100) + ')';
+    slider.classList.add('hidden');
+    imgUploadPreview.style.filter = 'none';
     };
 
 inputFile.addEventListener('change', function (evt) {
@@ -93,7 +95,7 @@ smallerPhotoButton.addEventListener('click', function(){
 };
 
 const createSlider = () => {
-    nouSlider.create(slider,{
+    noUiSlider.create(slider,{
         range: {
             min: 0,
             max: 100,
