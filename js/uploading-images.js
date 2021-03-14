@@ -8,6 +8,7 @@ const inputValue = document.querySelector('.scale__control--value');
 const imgUploadPreview = document.querySelector('.img-upload__preview');
 const slider = document.querySelector('.effect-level__slider');
 let radios = document.querySelectorAll('input[type="radio"]');
+const effectLevelValue = document.querySelector('.effect-level__value');
 const STANDART_VALUE = 100;
 const STEP_ZOOM = 25;
 const MIN_VALUE = 25;
@@ -65,6 +66,32 @@ smallerPhotoButton.addEventListener('click', function(){
     }
  });
 
+ const onUpdateSlider = (effect) => {
+    setSliderOptions(effect);
+    slider.noUiSlider.on('update', (values, handle) => {
+        effectLevelValue.value = values[handle];
+       
+        let filterName = '';
+        if (effect === 'chrome') {
+        filterName = 'grayscale(' + values[handle] +')';
+        }
+        if (effect === 'sepia') {
+        filterName = 'sepia(' + values[handle] +')';
+        }
+        if (effect === 'marvin') {
+        filterName = 'invert(' + values[handle] +'%)';
+        }
+         
+        if (effect === 'phobos') {
+        filterName = 'blur(' + values[handle] +'px)';
+        }
+        if (effect === 'heat') {
+        filterName = 'brightness(' + values[handle] +')';
+        }
+        imgUploadPreview.style.filter = filterName;
+        });
+};
+
 const createSlider = () => {
     nouSlider.create(slider,{
         range: {
@@ -72,6 +99,7 @@ const createSlider = () => {
             max: 100,
             },
             start: 80,
+            connect: 'lower',
     });
     
 };
@@ -135,36 +163,12 @@ radios.forEach ((effectButton) => {
     } else{
     slider.classList.remove('hidden');
     imgUploadPreview.classList.add('.effects__preview--' + effectButton.value);
+    onUpdateSlider(effectButton.value);
     
     }
     }
     )
     });
 
-    const onUpdateSlider = (effect) => {
-        setSliderOptions(effect);
-        slider.noUiSlider.on('update', (values, handle) => {
-            effectLevelValue.value = values[handle];
-           
-            let filterName = '';
-            if (effect === 'chrome') {
-            filterName = 'grayscale(' + values[handle] +')';
-            }
-            if (effect === 'sepia') {
-            filterName = 'sepia(' + values[handle] +')';
-            }
-            if (effect === 'marvin') {
-            filterName = 'invert(' + values[handle] +'%)';
-            }
-             
-            if (effect === 'phobos') {
-            filterName = 'blur(' + values[handle] +'px)';
-            }
-            if (effect === 'heat') {
-            filterName = 'brightness(' + values[handle] +')';
-            }
-            imgUploadPreview.style.filter = filterName;
-            });
-    };
     createSlider();
 
